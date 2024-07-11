@@ -1,0 +1,36 @@
+name: Build using C++20
+
+on:
+  push:
+    branches: [ development, C\+\+20Upgrade ]
+  pull_request:
+    branches: [ development, C\+\+20Upgrade ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        submodules: true
+
+    - name: Install dependencies
+      run: sudo apt-get install -y g++-10
+
+    - name: Set up C++20 compiler
+      run: sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-10 100
+
+    - name: Build with CMake
+      run: |
+        mkdir build
+        cd build
+        cmake .. -DCMAKE_CXX_STANDARD=20
+        cmake --build .
+
+    - name: Run tests
+      run: |
+        cd build
+        ctest
