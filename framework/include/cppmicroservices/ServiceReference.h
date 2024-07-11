@@ -100,6 +100,10 @@ namespace cppmicroservices
             }
         }
 
+        bool operator==(ServiceReference const& reference) const {
+            return ServiceReferenceBase::operator==(reference);
+        }
+
         using ServiceReferenceBase::operator=;
 
         using ServiceReferenceBase::operator==;
@@ -133,7 +137,9 @@ namespace cppmicroservices
 
         using ServiceReferenceBase::operator=;
 
+#if 0
         using ServiceReferenceBase::operator==;
+#endif
 
         using ServiceReferenceBase::Hash;
 

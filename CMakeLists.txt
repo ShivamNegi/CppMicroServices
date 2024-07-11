@@ -1,7 +1,7 @@
 # Extract the current version from the VERSION file
 file(STRINGS VERSION _version LIMIT_COUNT 1)
 
-set(US_CMAKE_MINIMUM_REQUIRED_VERSION 3.17)
+set(US_CMAKE_MINIMUM_REQUIRED_VERSION 3.20)
 
 cmake_minimum_required(VERSION ${US_CMAKE_MINIMUM_REQUIRED_VERSION})
 
@@ -46,7 +46,7 @@ endif()
 
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_ENABLE_EXPORTS ON)
 
 # Since version 3.1, CMake pulls in implicit link libraries when compiling

@@ -1,0 +1,28 @@
+name: Build using C++20
+
+on:
+  push:
+    branches: [ development, C\+\+20Upgrade, C\+\+20Linux ]
+  pull_request:
+    branches: [ development, C\+\+20Upgrade, C\+\+20Linux ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y valgrind
+      if: ${{matrix.os == 'ubuntu-22.04'}}
+
+    - name: Build And Test
+      run: ctest -VV -S ${{github.workspace}}/cmake/usCTestScript_github.cmake
+      env: 
+         BUILD_DIR: ${{github.workspace}}/build_0
