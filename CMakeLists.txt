@@ -46,8 +46,10 @@ endif()
 
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_ENABLE_EXPORTS ON)
+add_compile_definitions(_SILENCE_CXX20_OLD_SHARED_PTR_ATOMIC_SUPPORT_DEPRECATION_WARNING)
+
 
 # Since version 3.1, CMake pulls in implicit link libraries when compiling
 # source files in C mode. Because we mix C and C++ code in the test driver
