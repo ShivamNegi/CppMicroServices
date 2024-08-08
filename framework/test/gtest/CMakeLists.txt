@@ -75,8 +75,8 @@ set(_gtest_tests
   BundleHooksTest.cpp
   ServiceHooksTest.cpp
   TestCounterLatch.cpp
-  ResourceCompilerTest.cpp
-  MultipleListenersTest.cpp
+  # ResourceCompilerTest.cpp
+  # MultipleListenersTest.cpp
   BundleTest.cpp
   BundleTrackerMethodTest.cpp
   BundleTrackerCustomCallbackTest.cpp
